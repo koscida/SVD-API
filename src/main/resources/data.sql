@@ -1,3 +1,11 @@
+
+INSERT INTO skills VALUES (1,'Farming');
+INSERT INTO skills VALUES (2,'Mining');
+INSERT INTO skills VALUES (3,'Foraging');
+INSERT INTO skills VALUES (4,'Fishing');
+INSERT INTO skills VALUES (5,'Combat');
+
+
 INSERT INTO villagers VALUES (1,'Alex',1,1,1,0);
 INSERT INTO villagers VALUES (2,'Elliott',1,1,1,0);
 INSERT INTO villagers VALUES (3,'Harvey',1,1,1,0);

@@ -1,6 +1,5 @@
 package com.koscida.svdapi.svdapi.business;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
