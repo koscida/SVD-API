@@ -1,6 +1,8 @@
 package com.koscida.svdapi.svdapi.business;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,16 @@ public class RecipeService {
 
 	public List<Recipe> getRecipes() {
 		return this.recipeRepository.findAll();
+	}
+
+	public List<Recipe> getRecipeById(Long recipeId) {
+		List<Recipe> recipeList = new ArrayList<>();
+
+		Optional<Recipe> recipeOptional = this.recipeRepository.findById(recipeId);
+		Recipe result = recipeOptional.orElse(null);
+		recipeList.add(result);
+
+		return recipeList;
 	}
 
 }

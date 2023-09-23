@@ -2,7 +2,9 @@ package com.koscida.svdapi.svdapi.webservice;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.koscida.svdapi.svdapi.business.RecipeService;
@@ -19,19 +21,26 @@ public class RecipeController {
 		this.recipeService = recipeService;
 	}
 
-	@RequestMapping("/categories")
-	public List<RecipeCategory> getRecipeCategories() {
-		return recipeService.getRecipeCategories();
-	}
-
-	@RequestMapping("")
+	@GetMapping("")
 	public List<Recipe> getRecipes() {
 		return recipeService.getRecipes();
 	}
 
-	@RequestMapping("/")
-	public List<Recipe> getRecipesDup() {
-		return this.getRecipes();
+	@GetMapping("/")
+	public List<Recipe> getRecipeById(@RequestParam(value = "id", required = false) String recipeIdString) {
+		System.out.println("recipeIdString: " + recipeIdString);
+		if (recipeIdString == null) {
+			return this.getRecipes();
+		} else {
+			Long recipeId = Long.parseLong(recipeIdString);
+			return recipeService.getRecipeById(recipeId);
+		}
+
+	}
+
+	@GetMapping("/categories")
+	public List<RecipeCategory> getRecipeCategories() {
+		return recipeService.getRecipeCategories();
 	}
 
 }
