@@ -10,7 +10,7 @@ import com.koscida.svdapi.svdapi.business.VillagerService;
 import com.koscida.svdapi.svdapi.data.Villager;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/villagers")
 public class VillagerController {
 
 	private final VillagerService villagerService;
@@ -19,7 +19,7 @@ public class VillagerController {
 		this.villagerService = villagerService;
 	}
 
-	@GetMapping("/villagers")
+	@GetMapping("")
 	public List<Villager> getVillagers() {
 		return this.villagerService.getVillagers();
 	}

@@ -14,7 +14,7 @@ public class Villager {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "VILLAGER_ID")
-	private long id;
+	private Long id;
 
 	@Column(name = "name")
 	private String name;
@@ -31,11 +31,11 @@ public class Villager {
 	@Column(name = "is_bachelorette")
 	private boolean isBachelorette;
 
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
