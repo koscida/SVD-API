@@ -3,30 +3,21 @@ package com.koscida.svdapi.svdapi.business;
 import java.util.List;
 
 import com.koscida.svdapi.svdapi.data.Profession;
+import com.koscida.svdapi.svdapi.data.Skill;
 
 public class SkillTree {
 
-	private long skillId;
-	private String skillName;
-
+	private Skill skill;
 	private List<ProfessionPath> professionPath;
 
 	// getters and setters
 
-	public long getSkillId() {
-		return this.skillId;
+	public Skill getSkill() {
+		return this.skill;
 	}
 
-	public void setSkillId(long skillId) {
-		this.skillId = skillId;
-	}
-
-	public String getSkillName() {
-		return this.skillName;
-	}
-
-	public void setSkillName(String skillName) {
-		this.skillName = skillName;
+	public void setSkill(Skill skill) {
+		this.skill = skill;
 	}
 
 	public List<ProfessionPath> getProfessionPath() {
@@ -40,8 +31,7 @@ public class SkillTree {
 	@Override
 	public String toString() {
 		return "SkillTree: {" +
-				" skillId: " + skillId +
-				" skillName: " + skillName +
+				" skill: " + skill.toString() +
 				" professionPath: " + professionPath.toString() +
 				"}";
 	}

@@ -7,7 +7,7 @@ import com.koscida.svdapi.svdapi.data.Profession;
 public class ProfessionPath {
 
 	private Profession profession;
-	private List<Profession> professions;
+	private List<Profession> professionPath;
 
 	public Profession getProfession() {
 		return this.profession;
@@ -17,19 +17,19 @@ public class ProfessionPath {
 		this.profession = profession;
 	}
 
-	public List<Profession> getProfessions() {
-		return this.professions;
+	public List<Profession> getProfessionPath() {
+		return this.professionPath;
 	}
 
-	public void setProfessions(List<Profession> professions) {
-		this.professions = professions;
+	public void setProfessionPath(List<Profession> professionPath) {
+		this.professionPath = professionPath;
 	}
 
 	@Override
 	public String toString() {
 		return "ProfessionPath: {" +
 				" profession: " + profession +
-				" professions: " + professions.toString() +
+				" professionPath: " + professionPath.toString() +
 				"}";
 	}
 

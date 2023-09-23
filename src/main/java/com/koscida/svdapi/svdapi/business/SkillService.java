@@ -39,8 +39,7 @@ public class SkillService {
 			SkillTree newSkillTreeSkill = new SkillTree();
 
 			// set the skill info
-			newSkillTreeSkill.setSkillId(skill.getId());
-			newSkillTreeSkill.setSkillName(skill.getName());
+			newSkillTreeSkill.setSkill(skill);
 
 			//
 			// set the skill's profession path
@@ -55,7 +54,7 @@ public class SkillService {
 				professionPath.setProfession(profession);
 				List<Profession> professionsLevel10 = this.professionRepository.findByProfessionPathId(
 						profession.getId());
-				professionPath.setProfessions(professionsLevel10);
+				professionPath.setProfessionPath(professionsLevel10);
 				// add to paths
 				professionPaths.add(professionPath);
 			});

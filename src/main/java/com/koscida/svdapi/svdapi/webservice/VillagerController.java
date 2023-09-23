@@ -23,4 +23,9 @@ public class VillagerController {
 	public List<Villager> getVillagers() {
 		return this.villagerService.getVillagers();
 	}
+
+	@GetMapping("/")
+	public List<Villager> getVillagersDup() {
+		return this.getVillagers();
+	}
 }

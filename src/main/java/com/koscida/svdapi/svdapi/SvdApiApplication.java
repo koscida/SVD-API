@@ -8,6 +8,6 @@ public class SvdApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SvdApiApplication.class, args);
-	}
+	};
 
 }

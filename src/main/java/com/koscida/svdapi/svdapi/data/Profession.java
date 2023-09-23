@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,8 +28,9 @@ public class Profession {
 	@Column(name = "DESCRIPTION")
 	private String description;
 
-	@Column(name = "SKILL_ID")
-	private Long skillId;
+	@OneToOne
+	@JoinColumn(name = "SKILL_ID")
+	private Skill skill;
 
 	@Column(name = "PROFESSION_PATH_ID")
 	private Long professionPathId;
@@ -65,12 +69,12 @@ public class Profession {
 		this.description = description;
 	}
 
-	public Long getSkillId() {
-		return this.skillId;
+	public Skill getSkill() {
+		return this.skill;
 	}
 
-	public void setSkillId(Long skillId) {
-		this.skillId = skillId;
+	public void setSkill(Skill skill) {
+		this.skill = skill;
 	}
 
 	public Long getProfessionPathId() {
@@ -85,10 +89,11 @@ public class Profession {
 	@Override
 	public String toString() {
 		return "Profession: {" +
-				" name: " + getName() +
-				" level: " + getLevel() +
-				" skill id: " + getSkillId() +
-				" profession path id: " + getProfessionPathId() + "}";
+				" name: " + name +
+				" level: " + level +
+				" skill: " + skill.toString() +
+				" profession_path_id: " + professionPathId +
+				"}";
 
 	}
 

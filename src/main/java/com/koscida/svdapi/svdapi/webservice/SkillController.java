@@ -27,6 +27,11 @@ public class SkillController {
 		return this.skillService.getSkills();
 	}
 
+	@GetMapping("/")
+	public List<Skill> getSkillsDup() {
+		return this.getSkills();
+	}
+
 	@GetMapping("/professions")
 	public List<Profession> getProfessions() {
 		return this.skillService.getProfessions();

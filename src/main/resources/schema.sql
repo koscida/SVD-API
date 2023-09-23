@@ -59,3 +59,39 @@ CREATE TABLE villagers (
   is_bachelorette smallint NOT NULL DEFAULT '0',
   PRIMARY KEY (villager_id)
 ) ;
+
+--
+-- SQLINES DEMO *** or table `recipe_categories`
+--
+
+DROP TABLE IF EXISTS recipe_categories;
+/* SQLINES DEMO *** cs_client     = @@character_set_client */;
+/* SQLINES DEMO *** er_set_client = utf8mb4 */;
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE recipe_categories (
+  recipe_category_id bigint NOT NULL,
+  name varchar(10) NOT NULL,
+  PRIMARY KEY (recipe_category_id)
+) ;
+/* SQLINES DEMO *** er_set_client = @saved_cs_client */;
+
+
+--
+-- SQLINES DEMO *** or table `recipes`
+--
+
+DROP TABLE IF EXISTS recipes;
+/* SQLINES DEMO *** cs_client     = @@character_set_client */;
+/* SQLINES DEMO *** er_set_client = utf8mb4 */;
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE recipes (
+  recipe_id bigint NOT NULL,
+  name varchar(20) NOT NULL,
+  recipe_category_id bigint NOT NULL,
+  PRIMARY KEY (recipe_id)
+,
+  CONSTRAINT fk_recipes_recipe_categories FOREIGN KEY (recipe_category_id) REFERENCES recipe_categories (recipe_category_id)
+) ;
+
+CREATE INDEX fk_recipes_recipe_categories_idx ON recipes (recipe_category_id);
+/* SQLINES DEMO *** er_set_client = @saved_cs_client */;

@@ -9,9 +9,12 @@ import org.springframework.stereotype.Repository;
 public interface ProfessionRepository extends JpaRepository<Profession, Long> {
 
 	public List<Profession> findBySkillId(Long skillId);
+	// public List<Profession> findBySkill(Skill skill);
 
 	public List<Profession> findBySkillIdAndLevel(Long skillId, int level);
+	// public List<Profession> findBySkillAndLevel(Skill skill, int level);
 
 	public List<Profession> findByProfessionPathId(long professionPathId);
+	// public List<Profession> findByProfessionPath(Profession professionPath);
 
 }
