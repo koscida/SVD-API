@@ -9,12 +9,17 @@ import org.springframework.stereotype.Component;
 import com.koscida.svdapi.svdapi.business.recipes.RecipeService;
 import com.koscida.svdapi.svdapi.business.skills.SkillService;
 import com.koscida.svdapi.svdapi.business.skills.SkillTree;
+import com.koscida.svdapi.svdapi.business.tools.ToolService;
 import com.koscida.svdapi.svdapi.business.villagers.VillagerService;
 import com.koscida.svdapi.svdapi.data.recipes.Recipe;
 import com.koscida.svdapi.svdapi.data.recipes.RecipeCategory;
 import com.koscida.svdapi.svdapi.data.skills.Profession;
 import com.koscida.svdapi.svdapi.data.skills.Skill;
 import com.koscida.svdapi.svdapi.data.skills.SkillBuff;
+import com.koscida.svdapi.svdapi.data.tools.Tool;
+import com.koscida.svdapi.svdapi.data.tools.ToolCategory;
+import com.koscida.svdapi.svdapi.data.tools.ToolQualityType;
+import com.koscida.svdapi.svdapi.data.tools.ToolType;
 import com.koscida.svdapi.svdapi.data.villagers.Villager;
 
 @Component
@@ -23,11 +28,14 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 	private final VillagerService villagerService;
 	private final SkillService skillService;
 	private final RecipeService recipeService;
+	private final ToolService toolService;
 
-	public AppStartupEvent(VillagerService villagerService, SkillService skillService, RecipeService recipeService) {
+	public AppStartupEvent(VillagerService villagerService, SkillService skillService, RecipeService recipeService,
+			ToolService toolService) {
 		this.villagerService = villagerService;
 		this.skillService = skillService;
 		this.recipeService = recipeService;
+		this.toolService = toolService;
 	}
 
 	@Override
@@ -69,6 +77,25 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 		// get recipes
 		List<Recipe> recipes = this.recipeService.getRecipes();
 		recipes.forEach(System.out::println);
+
+		// ////
+		// tools
+
+		// get tool types
+		List<ToolType> toolTypes = this.toolService.getToolTypes();
+		toolTypes.forEach(System.out::println);
+
+		// get tool categories
+		List<ToolCategory> toolCategories = this.toolService.getToolCategories();
+		toolCategories.forEach(System.out::println);
+
+		// get tool quality types
+		List<ToolQualityType> toolQualityTypes = this.toolService.getToolQualityTypes();
+		toolQualityTypes.forEach(System.out::println);
+
+		// get tools
+		List<Tool> tools = this.toolService.getTools();
+		tools.forEach(System.out::println);
 	}
 
 }
