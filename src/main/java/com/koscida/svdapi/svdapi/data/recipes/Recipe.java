@@ -1,4 +1,4 @@
-package com.koscida.svdapi.svdapi.data;
+package com.koscida.svdapi.svdapi.data.recipes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

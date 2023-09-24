@@ -1,4 +1,4 @@
-package com.koscida.svdapi.svdapi.data;
+package com.koscida.svdapi.svdapi.data.skills;
 
 import java.util.List;
 

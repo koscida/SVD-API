@@ -1,5 +1,6 @@
 package com.koscida.svdapi.svdapi.webservice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.koscida.svdapi.svdapi.business.RecipeService;
-import com.koscida.svdapi.svdapi.data.Recipe;
-import com.koscida.svdapi.svdapi.data.RecipeCategory;
+import com.koscida.svdapi.svdapi.business.recipes.RecipeService;
+import com.koscida.svdapi.svdapi.data.recipes.Recipe;
+import com.koscida.svdapi.svdapi.data.recipes.RecipeCategory;
 
 @RestController
 @RequestMapping("/api/recipes")
@@ -28,12 +29,12 @@ public class RecipeController {
 
 	@GetMapping("/")
 	public List<Recipe> getRecipeById(@RequestParam(value = "id", required = false) String recipeIdString) {
-		System.out.println("recipeIdString: " + recipeIdString);
 		if (recipeIdString == null) {
 			return this.getRecipes();
 		} else {
-			Long recipeId = Long.parseLong(recipeIdString);
-			return recipeService.getRecipeById(recipeId);
+			List<Recipe> recipeList = new ArrayList<>();
+			recipeList.add(this.recipeService.getRecipeById(Long.parseLong(recipeIdString)));
+			return recipeList;
 		}
 
 	}
@@ -41,6 +42,18 @@ public class RecipeController {
 	@GetMapping("/categories")
 	public List<RecipeCategory> getRecipeCategories() {
 		return recipeService.getRecipeCategories();
+	}
+
+	@GetMapping("/categories/")
+	public List<RecipeCategory> getRecipecategoryById(
+			@RequestParam(value = "id", required = false) String recipeCategoryIdString) {
+		if (recipeCategoryIdString == null) {
+			return this.getRecipeCategories();
+		} else {
+			List<RecipeCategory> recipeCategoryList = new ArrayList<>();
+			recipeCategoryList.add(this.recipeService.getRecipeCategoryById(Long.valueOf(recipeCategoryIdString)));
+			return recipeCategoryList;
+		}
 	}
 
 }

@@ -6,15 +6,16 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import com.koscida.svdapi.svdapi.business.RecipeService;
-import com.koscida.svdapi.svdapi.business.SkillService;
-import com.koscida.svdapi.svdapi.business.SkillTree;
-import com.koscida.svdapi.svdapi.business.VillagerService;
-import com.koscida.svdapi.svdapi.data.Profession;
-import com.koscida.svdapi.svdapi.data.Recipe;
-import com.koscida.svdapi.svdapi.data.RecipeCategory;
-import com.koscida.svdapi.svdapi.data.Skill;
-import com.koscida.svdapi.svdapi.data.Villager;
+import com.koscida.svdapi.svdapi.business.recipes.RecipeService;
+import com.koscida.svdapi.svdapi.business.skills.SkillService;
+import com.koscida.svdapi.svdapi.business.skills.SkillTree;
+import com.koscida.svdapi.svdapi.business.villagers.VillagerService;
+import com.koscida.svdapi.svdapi.data.recipes.Recipe;
+import com.koscida.svdapi.svdapi.data.recipes.RecipeCategory;
+import com.koscida.svdapi.svdapi.data.skills.Profession;
+import com.koscida.svdapi.svdapi.data.skills.Skill;
+import com.koscida.svdapi.svdapi.data.skills.SkillBuff;
+import com.koscida.svdapi.svdapi.data.villagers.Villager;
 
 @Component
 public class AppStartupEvent implements ApplicationListener<ApplicationReadyEvent> {
@@ -32,12 +33,16 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
 
-		//
+		// ////
+		// villagers
+
 		// get villagers
 		List<Villager> villagers = this.villagerService.getVillagers();
 		villagers.forEach(System.out::println);
 
-		//
+		// ////
+		// skills
+
 		// get skills
 		List<Skill> skills = this.skillService.getSkills();
 		skills.forEach(System.out::println);
@@ -50,7 +55,13 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
 		List<SkillTree> skillTree = this.skillService.getSkillTree();
 		skillTree.forEach(System.out::println);
 
-		//
+		// get skill buffs
+		List<SkillBuff> skillBuffs = this.skillService.getSkillBuffs();
+		skillBuffs.forEach(System.out::println);
+
+		// ////
+		// recipes
+
 		// get recipe categories
 		List<RecipeCategory> recipeCategories = this.recipeService.getRecipeCategories();
 		recipeCategories.forEach(System.out::println);

@@ -1,9 +1,9 @@
-package com.koscida.svdapi.svdapi.data;
+package com.koscida.svdapi.svdapi.data.recipes;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SkillRepository extends JpaRepository<Skill, Long> {
+public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
 }

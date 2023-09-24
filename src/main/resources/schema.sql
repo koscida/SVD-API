@@ -15,7 +15,6 @@ CREATE TABLE skills (
 /* SQLINES DEMO *** er_set_client = @saved_cs_client */;
 
 
-
 --
 -- SQLINES DEMO *** or table `professions`
 --
@@ -43,6 +42,21 @@ CREATE INDEX sk_profession_skill_idx ON professions (skill_id);
 
 
 --
+-- Table structure for table `skill_buffs`
+--
+
+DROP TABLE IF EXISTS skill_buffs;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE skill_buffs (
+  skill_buff_id bigint NOT NULL,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (skill_buff_id)
+);
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+--
 -- SQLINES DEMO *** or table `villagers`
 --
 
@@ -59,6 +73,7 @@ CREATE TABLE villagers (
   is_bachelorette smallint NOT NULL DEFAULT '0',
   PRIMARY KEY (villager_id)
 ) ;
+
 
 --
 -- SQLINES DEMO *** or table `recipe_categories`
@@ -95,3 +110,79 @@ CREATE TABLE recipes (
 
 CREATE INDEX fk_recipes_recipe_categories_idx ON recipes (recipe_category_id);
 /* SQLINES DEMO *** er_set_client = @saved_cs_client */;
+
+
+--
+-- SQLINES DEMO *** or table `tool_categories`
+--
+
+DROP TABLE IF EXISTS tool_categories;
+/* SQLINES DEMO *** cs_client     = @@character_set_client */;
+/* SQLINES DEMO *** er_set_client = utf8mb4 */;
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE tool_categories (
+  tool_category_id bigint NOT NULL,
+  name varchar(10) NOT NULL,
+  PRIMARY KEY (tool_category_id)
+) ;
+/* SQLINES DEMO *** er_set_client = @saved_cs_client */;
+
+
+--
+-- SQLINES DEMO *** or table `tool_quality_types`
+--
+
+DROP TABLE IF EXISTS tool_quality_types;
+/* SQLINES DEMO *** cs_client     = @@character_set_client */;
+/* SQLINES DEMO *** er_set_client = utf8mb4 */;
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE tool_quality_types (
+  tool_quality_type_id bigint NOT NULL,
+  name varchar(10) NOT NULL,
+  PRIMARY KEY (tool_quality_type_id)
+) ;
+/* SQLINES DEMO *** er_set_client = @saved_cs_client */;
+
+
+--
+-- SQLINES DEMO *** or table `tool_types`
+--
+
+DROP TABLE IF EXISTS tool_types;
+/* SQLINES DEMO *** cs_client     = @@character_set_client */;
+/* SQLINES DEMO *** er_set_client = utf8mb4 */;
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE tool_types (
+  tool_type_id bigint NOT NULL,
+  name varchar(20) NOT NULL,
+  PRIMARY KEY (tool_type_id)
+) ;
+/* SQLINES DEMO *** er_set_client = @saved_cs_client */;
+
+
+--
+-- SQLINES DEMO *** or table `tools`
+--
+
+DROP TABLE IF EXISTS tools;
+/* SQLINES DEMO *** cs_client     = @@character_set_client */;
+/* SQLINES DEMO *** er_set_client = utf8mb4 */;
+-- SQLINES LICENSE FOR EVALUATION USE ONLY
+CREATE TABLE tools (
+  tool_id bigint NOT NULL,
+  name varchar(50) NOT NULL,
+  tool_category_id bigint NOT NULL,
+  tool_type_id bigint NOT NULL,
+  tool_quality_type_id bigint NOT NULL,
+  description varchar(255) DEFAULT NULL,
+  is_starter smallint NOT NULL DEFAULT '0',
+  PRIMARY KEY (tool_id)
+,
+  CONSTRAINT tool_types_tool_category_id FOREIGN KEY (tool_category_id) REFERENCES tool_categories (tool_category_id),
+  CONSTRAINT tool_types_tool_quality_type_id FOREIGN KEY (tool_quality_type_id) REFERENCES tool_quality_types (tool_quality_type_id),
+  CONSTRAINT tool_types_tool_type_id FOREIGN KEY (tool_type_id) REFERENCES tool_types (tool_type_id)
+);
+
+CREATE INDEX tool_types_tool_category_id_idx ON tools (tool_category_id);
+CREATE INDEX tool_types_tool_type_id_idx ON tools (tool_type_id);
+CREATE INDEX tool_types_tool_quality_type_id_idx ON tools (tool_quality_type_id);

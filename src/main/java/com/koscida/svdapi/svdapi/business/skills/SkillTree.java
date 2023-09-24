@@ -1,9 +1,9 @@
-package com.koscida.svdapi.svdapi.business;
+package com.koscida.svdapi.svdapi.business.skills;
 
 import java.util.List;
 
-import com.koscida.svdapi.svdapi.data.Profession;
-import com.koscida.svdapi.svdapi.data.Skill;
+import com.koscida.svdapi.svdapi.data.skills.Profession;
+import com.koscida.svdapi.svdapi.data.skills.Skill;
 
 public class SkillTree {
 

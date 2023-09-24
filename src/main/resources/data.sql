@@ -43,6 +43,15 @@ INSERT INTO professions VALUES (28,'Acrobat',10,'Cooldown on special moves cut i
 INSERT INTO professions VALUES (29,'Defender',10,'.',5,26);
 INSERT INTO professions VALUES (30,'Desperado',10,'Critical strikes are deadlier.',5,26);
 
+
+--
+-- Dumping data for table `skill_buffs`
+--
+
+INSERT INTO skill_buffs VALUES (1,' +1 Wild Berry harvesting');
+INSERT INTO skill_buffs VALUES (2,'Casting distance increased by one tile ');
+INSERT INTO skill_buffs VALUES (3,'Trees sometimes drop seeds');
+
 --
 -- Dumping data for table `villagers`
 --
@@ -183,3 +192,84 @@ INSERT INTO recipes VALUES (77,'Triple Shot Espresso',1);
 INSERT INTO recipes VALUES (78,'Tropical Curry',1);
 INSERT INTO recipes VALUES (79,'Trout Soup',1);
 INSERT INTO recipes VALUES (80,'Vegetable Medley',1);
+
+
+--
+-- Dumping data for table `tool_categories`
+--
+
+INSERT INTO tool_categories VALUES (1,'Basic');
+INSERT INTO tool_categories VALUES (2,'Fishing');
+INSERT INTO tool_categories VALUES (3,'Farm');
+
+--
+-- Dumping data for table `tool_quality_types`
+--
+
+INSERT INTO tool_quality_types VALUES (1,'Regular');
+INSERT INTO tool_quality_types VALUES (2,'Copper');
+INSERT INTO tool_quality_types VALUES (3,'Steel');
+INSERT INTO tool_quality_types VALUES (4,'Gold');
+INSERT INTO tool_quality_types VALUES (5,'Iridium');
+INSERT INTO tool_quality_types VALUES (6,'Training');
+INSERT INTO tool_quality_types VALUES (7,'Fiberglass');
+INSERT INTO tool_quality_types VALUES (8,'Large');
+INSERT INTO tool_quality_types VALUES (9,'Deluxe');
+
+--
+-- Dumping data for table `tool_types`
+--
+
+INSERT INTO tool_types VALUES (1,'Hoe');
+INSERT INTO tool_types VALUES (2,'Axe');
+INSERT INTO tool_types VALUES (3,'Watering Can');
+INSERT INTO tool_types VALUES (4,'Trash Can');
+INSERT INTO tool_types VALUES (5,'Fishing Pole');
+INSERT INTO tool_types VALUES (6,'Scythe');
+INSERT INTO tool_types VALUES (7,'Backpack');
+INSERT INTO tool_types VALUES (8,'Other');
+
+--
+-- Dumping data for table `tools`
+--
+
+INSERT INTO tools VALUES (1,'Hoe',1,1,1,'',1);
+INSERT INTO tools VALUES (2,'Copper Hoe',1,1,2,'Increases maximum area of effect to 3 tiles in a straight line.',0);
+INSERT INTO tools VALUES (3,'Steel Hoe',1,1,3,'Increases maximum area of effect to 5 tiles in a straight line.',0);
+INSERT INTO tools VALUES (4,'Gold Hoe',1,1,4,'Increases maximum area of effect to a 3x3 area (9 corresponding tiles).',0);
+INSERT INTO tools VALUES (5,'Iridium Hoe',1,1,5,'Increases maximum area of effect to a 6x3 area (18 corresponding tiles).',0);
+INSERT INTO tools VALUES (6,'Pickaxe',1,1,1,'Can break small rocks anywhere.',0);
+INSERT INTO tools VALUES (7,'Copper Pickaxe',1,1,2,'Can break copper nodes in 2 hits.',0);
+INSERT INTO tools VALUES (8,'Steel Pickaxe',1,1,3,'Can break boulders.',0);
+INSERT INTO tools VALUES (9,'Gold Pickaxe',1,1,4,'Can break a meteorite.',0);
+INSERT INTO tools VALUES (10,'Iridium Pickaxe',1,1,5,'Can break rocks in the Quarry Mine and Skull Cavern in 1 hit.',0);
+INSERT INTO tools VALUES (11,'Axe',1,2,1,'10 hits to chop a fully-grown tree, and 5 hits for a small stump.',1);
+INSERT INTO tools VALUES (12,'Copper Axe',1,2,2,'Can chop Large Stumps. 8 hits to chop a fully-grown tree, and 4 hits for a small stump.',0);
+INSERT INTO tools VALUES (13,'Steel Axe',1,2,3,'Can chop Large Logs. 6 hits to chop a fully-grown tree, and 3 hits for a small stump.3 hits for a stage 4 tree, and 2 hits for a stage 3 tree and below.',0);
+INSERT INTO tools VALUES (14,'Gold Axe',1,2,4,'4 hits to chop a fully-grown tree, and 2 hits for a small stump. 2 hits for a stage 4 tree, and one hit for a stage 3 tree and below.',0);
+INSERT INTO tools VALUES (15,'Iridium Axe',1,2,5,'2 hits to chop a fully-grown tree, and 1 hit for a small stump. 1 hit for a stage 4 tree and below.',0);
+INSERT INTO tools VALUES (16,'Watering Can',1,3,1,'Has a total water capacity of 40 charges before it has to be refilled.',1);
+INSERT INTO tools VALUES (17,'Copper Watering Can',1,3,2,'Capacity increased to 55 charges. Increases maximum area of effect to 3 tiles in a straight line.',0);
+INSERT INTO tools VALUES (18,'Steel Watering Can',1,3,3,'Capacity increased to 70 charges. Increases maximum area of effect to 5 tiles in a straight line.',0);
+INSERT INTO tools VALUES (19,'Gold Watering Can',1,3,4,'Capacity increased to 85 charges. Increases maximum area of effect to a 3x3 area (9 corresponding tiles).',0);
+INSERT INTO tools VALUES (20,'Iridium Watering Can',1,3,5,'Capacity increased to 100 charges. Increases maximum area of effect to a 6x3 area (18 corresponding tiles).',0);
+INSERT INTO tools VALUES (21,'Trash Can',1,4,1,'Used to delete items from the inventory menu.',1);
+INSERT INTO tools VALUES (22,'Copper Trash Can',1,4,2,'When deleting items, reclaim 15% of their monetary value.',0);
+INSERT INTO tools VALUES (23,'Steel Trash Can',1,4,3,'When deleting items, reclaim 30% of their monetary value.',0);
+INSERT INTO tools VALUES (24,'Gold Trash Can',1,4,4,'When deleting items, reclaim 45% of their monetary value.',0);
+INSERT INTO tools VALUES (25,'Iridium Trash Can',1,4,5,'When deleting items, reclaim 60% of their monetary value.',0);
+INSERT INTO tools VALUES (26,'Training Rod',2,5,6,'Easier to use (only catches common Fish).',0);
+INSERT INTO tools VALUES (27,'Bamboo Pole',2,5,1,'',1);
+INSERT INTO tools VALUES (28,'Fiberglass Rod',2,5,7,'Able to use bait.',0);
+INSERT INTO tools VALUES (29,'Iridium Rod',2,5,5,'Able to use bait & tackle.',0);
+INSERT INTO tools VALUES (30,'Backpack (12 slots)',1,7,1,'Use to carry your inventory.',1);
+INSERT INTO tools VALUES (31,'Large Pack (24 slots)',1,7,8,'Unlocks the 2nd row of inventory (12 more slots).',0);
+INSERT INTO tools VALUES (32,'Deluxe Pack (36 slots)',1,7,9,'Unlocks the 3rd row of inventory (12 more slots).',0);
+INSERT INTO tools VALUES (33,'Scythe',1,6,1,'It can cut grass into hay, if youve built a silo.',1);
+INSERT INTO tools VALUES (34,'Golden Scythe',1,6,4,'Its more powerful than a normal scythe.',0);
+INSERT INTO tools VALUES (35,'Milk Pail',3,8,1,'Gather milk from your animals.',0);
+INSERT INTO tools VALUES (36,'Shears',3,8,1,'Use this to collect wool from sheep',0);
+INSERT INTO tools VALUES (37,'Heater',3,8,1,'Keeps your animals warmer and happier during the winter.',0);
+INSERT INTO tools VALUES (38,'Copper Pan',3,8,1,'Use to gather ore from streams.',0);
+INSERT INTO tools VALUES (39,'Auto-Grabber',3,8,1,'Automatically harvests from your animals each morning. Must be placed inside a coop or barn.',0);
+INSERT INTO tools VALUES (40,'Auto-Petter',3,8,1,'Joja Co. patented technology for coops and barns. Keeps your animals content, but cant replace the full benefit of human touch. Hand-petting can be provided to supplement.',0);
